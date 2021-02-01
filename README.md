@@ -16,7 +16,7 @@ https://github.com/SmartArduino/Doiting_BL.git
 https://github.com/bouffalolab/bl_iot_sdk.git
 ```
 
-  but found they did not completely build.
+  but found they did not completely build.  So I ended up with the Pin64 version.
 
  - Get this repository
 
@@ -96,3 +96,6 @@ wifi_state
 ```
 
  - Once you've connect to your router you should be able to browse to the IP address that the bl602 got from your router and see a "SICS lwIP" web page.
+
+ - OTA updates (still working on)
+ 
