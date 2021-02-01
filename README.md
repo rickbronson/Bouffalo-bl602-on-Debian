@@ -3,7 +3,7 @@
 
   With the success of the ESP8266, it was only a matter of time before someone came out with a similar part.  It's a little more expensive than the ESP8266 but it's got BLE and seems to have a real I2C peripheral instead of a software implemented one.
 
-![DT-BL10 board](https://github.com/rickbronson/Bouffalo-bl602-on-Debian/blob/master/docs/hardware/bl602-board.png.png "/DT-BL10 board")
+![DT-BL10 board](https://github.com/rickbronson/Bouffalo-bl602-on-Debian/blob/master/docs/hardware/bl602-board.png "DT-BL10 board")
 
 ![bl602 Block Diagram](https://github.com/rickbronson/Bouffalo-bl602-on-Debian/blob/master/docs/hardware/DT-BL10-Block-Diagram.jpg "bl602 Block Diagram")
 
