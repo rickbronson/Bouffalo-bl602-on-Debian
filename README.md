@@ -3,12 +3,18 @@
 
   With the success of the ESP8266, it was only a matter of time before someone came out with a similar part.  It's a little more expensive than the ESP8266 but it's got BLE and seems to have a real I2C peripheral instead of a software implemented one.
 
+![/DT-BL10 board](https://github.com/rickbronson/Bouffalo-bl602-on-Debian/blob/master/docs/hardware/bl602-board.png.png "/DT-BL10 board")
+
+![bl602 Block Diagram](https://github.com/rickbronson/Bouffalo-bl602-on-Debian/blob/master/docs/hardware/DT-BL10-Block-Diagram.jpg "bl602 Block Diagram")
+
   Below is what I needed to do to get it all working on Debian.
 
   I first tried each of these:
 
+```
 https://github.com/SmartArduino/Doiting_BL.git
 https://github.com/bouffalolab/bl_iot_sdk.git
+```
 
   but found they did not completely build.
 
@@ -17,7 +23,7 @@ https://github.com/bouffalolab/bl_iot_sdk.git
 ```
 mkdir <somewhere>
 cd <somewhere>
-git clone https://github.com/rickbonron/Bouffalo-bl602-on-Debian.git
+git clone https://github.com/rickbronson/Bouffalo-bl602-on-Debian.git
 ```
 
  - Get the SDK and the flasher
@@ -72,9 +78,10 @@ sed -i -e "s|#include <lwip/err.h>|#include <lwip/err.h>\n#include <lwip/apps/ht
 
 - Flash one app.  Before you do this you need to "erase" above, Also, before you do this, you need to hold down the "D8" button and press the RESET button, then relase them both.
 ```
- make bl602_demo_event
+ make bl602_demo_event-flash
 ```
- - Use a terminal program to get to the command line
+
+- Use a terminal program to get to the command line
  
 ```
 minicom -b 115200 -w -D /dev/ttyUSB0 -C ~/minicom.USB0-bl602.cap
@@ -89,8 +96,6 @@ wifi_state
 ```
 
  - Once you've connect to your router you should be able to browse to the IP address that the bl602 got from your router and see a web page.
-
-![Joystick mod](https://github.com/rickbronson/RC-Car-Camera/blob/master/docs/hardware/joystick-mod1.png "Joystick mod")
 
  - Comments/suggestions
 
