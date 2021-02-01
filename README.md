@@ -76,12 +76,12 @@ sed -i -e "s|#include <lwip/err.h>|#include <lwip/err.h>\n#include <lwip/apps/ht
  make erase
 ```
 
-- Flash one app.  Before you do this you need to do "erase" as above.  Also, before you do this, you need to hold down the "D8" button and press the EN button, then relase them both.
+ - Flash one app.  Before you do this you need to do "erase" as above.  Also, before you do this, you need to hold down the "D8" button and press the EN button, then relase them both.
 ```
  make bl602_demo_event-flash
 ```
 
-- Now press the EN button on the board and use a terminal program to get to the command line
+ - Now press the EN button on the board and use a terminal program to get to the command line
  
 ```
 minicom -b 115200 -w -D /dev/ttyUSB0 -C ~/minicom.USB0-bl602.cap
@@ -96,7 +96,3 @@ wifi_state
 ```
 
  - Once you've connect to your router you should be able to browse to the IP address that the bl602 got from your router and see a "SICS lwIP" web page.
-
- - Comments/suggestions
-
-  Please contact me at rick AT efn DOT org
