@@ -35,7 +35,7 @@ git clone https://github.com/renzenicolai/bl602tool.git
 pip3 install serial pyserial
 ```
 
- - I had a lot of trouble with the baud rate set at 2000000.  Many characters never seem to make it to my screen.  So I switched the baud rate to 115200:
+ - I had a lot of trouble with the baud rate set at 2000000.  Many characters never seemed to make it to my screen.  So I switched the baud rate to 115200:
 
 ```
 for file in `find bl_iot_sdk -name "*.c"`; do if grep bl_uart_init $file; then \
@@ -60,7 +60,7 @@ sed -i -e "s/tcpip_init(NULL, NULL);/tcpip_init(NULL, NULL);\n\nhttpd_init();\n/
 sed -i -e "s|#include <lwip/err.h>|#include <lwip/err.h>\n#include <lwip/apps/httpd.h>|" $file; fi; done
 ```
 
- - Build everything
+ - Build everything (this takes a pretty long time, even on a fast machine)
  
 ```
  make
@@ -71,17 +71,17 @@ sed -i -e "s|#include <lwip/err.h>|#include <lwip/err.h>\n#include <lwip/apps/ht
  make bl602_demo_event
 ```
 
- - Erase.  Before you do this, you need to hold down the "D8" button and press the RESET button, then relase them both.
+ - Erase.  Before you do this, you need to hold down the "D8" button and press the EN button, then relase them both.
 ```
  make erase
 ```
 
-- Flash one app.  Before you do this you need to "erase" above, Also, before you do this, you need to hold down the "D8" button and press the RESET button, then relase them both.
+- Flash one app.  Before you do this you need to do "erase" as above.  Also, before you do this, you need to hold down the "D8" button and press the EN button, then relase them both.
 ```
  make bl602_demo_event-flash
 ```
 
-- Use a terminal program to get to the command line
+- Now press the EN button on the board and use a terminal program to get to the command line
  
 ```
 minicom -b 115200 -w -D /dev/ttyUSB0 -C ~/minicom.USB0-bl602.cap
@@ -95,7 +95,7 @@ wifi_sta_connect <Your router SSID> <Your router passcode>
 wifi_state
 ```
 
- - Once you've connect to your router you should be able to browse to the IP address that the bl602 got from your router and see a web page.
+ - Once you've connect to your router you should be able to browse to the IP address that the bl602 got from your router and see a "SICS lwIP" web page.
 
  - Comments/suggestions
 
