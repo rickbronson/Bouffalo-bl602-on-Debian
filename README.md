@@ -16,7 +16,7 @@ https://github.com/SmartArduino/Doiting_BL.git
 https://github.com/bouffalolab/bl_iot_sdk.git
 ```
 
-  but found they did not completely build.  So I ended up with the Pin64 version.
+  but found they did not completely build.  So I ended up with the Pin64 version, even though I'm using the DT-BL10 board and not the Pine board.
 
  - Get this repository
 
@@ -26,7 +26,7 @@ cd <somewhere>
 git clone https://github.com/rickbronson/Bouffalo-bl602-on-Debian.git
 ```
 
- - Get the SDK and the flasher
+ - Get the SDK, Python flasher and the Python modules.
 
 ```
 cd Bouffalo-bl602-on-Debian

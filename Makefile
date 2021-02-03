@@ -28,24 +28,24 @@ bl602_demo_at-clean sdk_app_audio_udp-clean bl602_boot2_mini-clean sdk_app_pwm-c
 # flash one
 bl602_demo_at-flash sdk_app_audio_udp-flash bl602_boot2_mini-flash sdk_app_pwm-flash sdk_app_dac-flash sdk_app_hbnram-flash bl602_demo_event-flash bl602_demo_noconnectivity-flash sdk_app_mdns-flash sdk_app_timer-flash sdk_app_gpio-flash sdk_app_blog-flash sdk_app_romfs-flash sdk_app_helloworld-flash benchmark_security_aes-flash sdk_app_spi-flash sdk_app_cli-flash sdk_app_ir-flash sdk_app_easyflash-flash sdk_app_ble_sync-flash sdk_app_cronalarm-flash sdk_app_event-flash sdk_app_uart_echo-flash sdk_app_fdt-flash sdk_app_i2c-flash bl602_demo_nano-flash bl602_demo_wifi-flash sdk_app_bledemo-flash sdk_app_uart_ctl-flash sdk_app_http_client_socket-flash sdk_app_heap-flash bl602_huawei_cloud-flash sdk_app_http_client_tcp-flash bl602_boot2-flash:
 	cd ${BL60X_SDK_PATH}/customer_app; python3 ${BL60X_SDK_PATH}/image_conf/flash_build.py `echo $@ | sed -e "s/-flash//"` bl602
-	cd bl602tool; python3 bltool.py --write 0 ${BL60X_SDK_PATH}/customer_app/`echo $@ | sed -e "s/-flash//"`/build_out/whole_dts40M_pt2M_boot2debug_c84015.bin
+	cd bl602tool; python3 bltool.py --baudrate 1000000 --write 0 ${BL60X_SDK_PATH}/customer_app/`echo $@ | sed -e "s/-flash//"`/build_out/whole_*c84015.bin
 
 info:
-	cd bl602tool; python3 bltool.py --info
+	cd bl602tool; python3 bltool.py --baudrate 1000000 --info
 
 erase:
-	cd bl602tool; python3 bltool.py --erase
+	cd bl602tool; python3 bltool.py --baudrate 1000000 --erase
 
 read:
-	cd bl602tool; python3 bltool.py --read 0 131072 ../read.bin
+	cd bl602tool; python3 bltool.py --baudrate 1000000 --read 0 131072 ../read.bin
 
 orig:
-	cd bl602tool; python3 bltool.py --write 0 ../read.bin
+	cd bl602tool; python3 bltool.py --baudrate 1000000 --write 0 ../read.bin
 
 github-init:
 	rm -rf .git
 	git init
-	git add Makefile docs ./README.md 
+	git add Makefile docs ./README.md
 	git commit -m "first commit"
 	git remote add origin https://github.com/rickbronson/Bouffalo-bl602-on-Debian.git
 #	git push -u origin master
